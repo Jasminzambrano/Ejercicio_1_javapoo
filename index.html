@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 1 - Serie Fibonacci</title>
+</head>
+<body>
+    <h1>Serie Fibonacci</h1>
+    <label for="numElementos">Número de Elementos:</label>
+    <input type="number" id="numElementos" value="10">
+    <button onclick="mostrarFibonacci()">Generar Serie</button>
+    <p id="resultado"></p>
+
+    <script>
+        function mostrarFibonacci() {
+            let numElementos = document.getElementById('numElementos').value;
+            let serie = generarFibonacci(numElementos);
+            document.getElementById('resultado').innerText = 'Serie Fibonacci: ' + serie.join(', ');
+            console.log(serie);
+        }
+
+        function generarFibonacci(numElementos) {
+            if (numElementos === 0) return [];
+            if (numElementos === 1) return [0];
+
+            let serie = [0, 1];
+            for (let i = 2; i < numElementos; i++) {
+                serie.push(serie[i - 1] + serie[i - 2]);
+            }
+            return serie;
+        }
+    </script>
+</body>
+</html>
